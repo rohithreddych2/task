@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input placeholder="enter number" id="num" onkeyup="ch()">
+        <div id="demo_div">
+
+        </div>
+        <script>
+            function ch(){
+    let text="";
+    let n =parseInt(document.getElementById("num").value)
+    ;
+    for(let i =1;i<=n;i++)
+{for(let j=0;j<i;j++){
+    text += "*";
+}
+text += "<br>" 
+}
+document.getElementById("demo_div").innerHTML =text;
+            }
+    </script>
+</body>
+</html>
+

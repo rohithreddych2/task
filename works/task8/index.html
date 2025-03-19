@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <input placeholder = "input text" id="text" onkeyup="generate()">
+        <input placeholder = "output text" id="t" disabled>
+
+    </body>
+    <script>
+     function generate(){
+        let a = document.getElementById("text").value;
+        let b= a.toUpperCase();
+        document.getElementById("t").value = b;
+     }
+       </script>
+</html>

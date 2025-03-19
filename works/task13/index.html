@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        let users = [];
+
+        function detail() {
+            let user = {
+                name: document.getElementById("name").value,
+                year: document.getElementById("year").value,
+                major: document.getElementById("major").value,
+                id: document.getElementById("id").value,
+                details: function () {
+                    return "My name is " + this.name + ", I am in year " + this.year + ", studying in " + this.major + " with ID number " + this.id + ".";
+                }
+            };
+
+            users.push(user);
+
+            document.getElementById("name").value = '';
+            document.getElementById("year").value = '';
+            document.getElementById("major").value = '';
+            document.getElementById("id").value = '';
+        }
+
+        function show() {
+            let display = document.getElementById("div");
+            display.innerHTML = '';
+
+            for (let i = 0; i < users.length; i++) {
+                display.innerHTML += users[i].details() + "<br>";
+            }
+        }
+    </script>
+
+    <input placeholder="Enter name" id="name">
+    <input placeholder="Enter ID" id="id">
+    <input placeholder="Enter year" id="year">
+    <input placeholder="Enter major" id="major">
+    <button onclick="detail()">Insert Info</button>
+    <button onclick="show()">Show All Details</button>
+    <p id="div"></p>
+
+</body>
+
+</html>

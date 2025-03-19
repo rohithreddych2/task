@@ -1,0 +1,26 @@
+.header_div{
+background-color: aliceblue;
+text-align: center;
+padding: 10px;
+}
+.content_div{
+background-color: antiquewhite;
+margin-top: 10px;
+padding: 10px;
+}
+.btn_div{
+margin-top: 10px;
+}
+.dashboard_content_div{
+background-color: aliceblue;
+padding: 10px;
+margin-top: 10px;
+height:300px
+}
+#ref_btn{
+width: 300px;
+font-size: 20px;
+}
+*{
+text-align: center;
+}

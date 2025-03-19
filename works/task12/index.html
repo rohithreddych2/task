@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <input placeholder="enter number" id="num" onkeyup="ch()">
+    <div id="demo_div"></div>
+    <script>
+        const colors = ["red", "green", "blue", "orange"];
+        let idx = 0;
+
+        function ch() {
+            let text = "";
+            let n = parseInt(document.getElementById("num").value);
+            for (let i = 1; i <= n; i++) {
+                for (let j = 0; j < i; j++) {
+                    text += "*";
+                }
+                text += "<br>"
+            }
+            document.getElementById("demo_div").innerHTML = text;
+            document.getElementById("demo_div").style = "color:" + colors[idx];
+            idx = [idx + 1] % colors.length;
+        }
+    </script>
+</body>
+
+</html>
