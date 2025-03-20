@@ -57,6 +57,12 @@ nav a {
     border-radius: 4px;
     transition: background 0.3s;
 }
+nav a.active {
+    background: #ff9800; /* Highlight color */
+    color: white;
+    font-weight: bold;
+}
+
 
 nav a:hover, nav a.active {
     background: #555;

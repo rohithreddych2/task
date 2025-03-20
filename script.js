@@ -35,9 +35,8 @@ function createNav() {
             const frame = document.getElementById("contentFrame");
             frame.src = work.url;
 
-            // Highlight active link
-            const allLinks = document.querySelectorAll(".nav-link");
-            allLinks.forEach(a => a.classList.remove("active"));
+            // Remove active class from all links and set for clicked one
+            document.querySelectorAll(".nav-link").forEach(a => a.classList.remove("active"));
             this.classList.add("active");
 
             return false; // Prevent default link behavior
@@ -54,11 +53,11 @@ function addScrollButtons() {
     const scrollRight = document.getElementById("scrollRight");
 
     scrollLeft.addEventListener("click", function () {
-        navPanel.scrollBy({ left: -700, behavior: "smooth" });
+        navPanel.scrollBy({ left: -200, behavior: "smooth" });
     });
 
     scrollRight.addEventListener("click", function () {
-        navPanel.scrollBy({ left: 700, behavior: "smooth" });
+        navPanel.scrollBy({ left: 200, behavior: "smooth" });
     });
 }
 
