@@ -54,11 +54,11 @@ function addScrollButtons() {
     const scrollRight = document.getElementById("scrollRight");
 
     scrollLeft.addEventListener("click", function () {
-        navPanel.scrollBy({ left: -200, behavior: "smooth" });
+        navPanel.scrollBy({ left: -700, behavior: "smooth" });
     });
 
     scrollRight.addEventListener("click", function () {
-        navPanel.scrollBy({ left: 200, behavior: "smooth" });
+        navPanel.scrollBy({ left: 700, behavior: "smooth" });
     });
 }
 
