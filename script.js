@@ -30,7 +30,9 @@ function createNav() {
         link.className = "nav-link";
 
         // Add click event
-        link.onclick = function () {
+        link.onclick = function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            
             // Load content
             const frame = document.getElementById("contentFrame");
             frame.src = work.url;
@@ -38,8 +40,6 @@ function createNav() {
             // Remove active class from all links and set for clicked one
             document.querySelectorAll(".nav-link").forEach(a => a.classList.remove("active"));
             this.classList.add("active");
-
-            return false; // Prevent default link behavior
         };
 
         navPanel.appendChild(link);
@@ -53,11 +53,11 @@ function addScrollButtons() {
     const scrollRight = document.getElementById("scrollRight");
 
     scrollLeft.addEventListener("click", function () {
-        navPanel.scrollBy({ left: -200, behavior: "smooth" });
+        navPanel.scrollBy({ left: -900, behavior: "smooth" });
     });
 
     scrollRight.addEventListener("click", function () {
-        navPanel.scrollBy({ left: 200, behavior: "smooth" });
+        navPanel.scrollBy({ left: 900, behavior: "smooth" });
     });
 }
 
