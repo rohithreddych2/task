@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Works</title>
+    <title>Assignment</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Class Works</h1>
+    <h1>Dynamic Project Gallery</h1>
 
     <div class="nav-container">
         <button id="scrollLeft" class="scroll-btn">&#9665;</button>
@@ -18,7 +18,14 @@
     </div>
 
     <main id="content">
+        <!-- The iframe for loading projects -->
         <iframe id="contentFrame" src="works/landing.html"></iframe>
+
+        <!-- Navigation buttons for iframe -->
+        <div id="iframeNav">
+            <button id="prevButton">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
     </main>
 
     <script src="script.js"></script>

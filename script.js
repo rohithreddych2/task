@@ -16,6 +16,9 @@ const works = {
     "task15": { "title": "Project 15", "url": "works/task15/index.html" }
 };
 
+const taskIds = Object.keys(works);
+let currentTaskIndex = 0;
+
 // Function to create the navigation menu
 function createNav() {
     const navPanel = document.getElementById("navPanel");
@@ -34,15 +37,49 @@ function createNav() {
             event.preventDefault(); // Prevent default link behavior
             
             // Load content
-            const frame = document.getElementById("contentFrame");
-            frame.src = work.url;
-
-            // Remove active class from all links and set for clicked one
-            document.querySelectorAll(".nav-link").forEach(a => a.classList.remove("active"));
-            this.classList.add("active");
+            loadContent(id);
         };
 
         navPanel.appendChild(link);
+    }
+}
+
+// Function to load content into the iframe
+function loadContent(taskId) {
+    const work = works[taskId];
+    const frame = document.getElementById("contentFrame");
+    frame.src = work.url;
+
+    // Remove active class from all links and set for clicked one
+    document.querySelectorAll(".nav-link").forEach(a => a.classList.remove("active"));
+    const activeLink = [...document.querySelectorAll(".nav-link")].find(a => a.textContent === work.title);
+    if (activeLink) activeLink.classList.add("active");
+
+    // Update current task index
+    currentTaskIndex = taskIds.indexOf(taskId);
+
+    // Show or disable next/previous buttons based on current task index
+    toggleNavButtons();
+
+    // Ensure navigation buttons are visible when a project is selected
+    document.getElementById("iframeNav").style.display = "flex";
+}
+
+// Function to show or disable the Next and Previous buttons
+function toggleNavButtons() {
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+
+    if (currentTaskIndex > 0) {
+        prevButton.disabled = false;
+    } else {
+        prevButton.disabled = true;
+    }
+
+    if (currentTaskIndex < taskIds.length - 1) {
+        nextButton.disabled = false;
+    } else {
+        nextButton.disabled = true;
     }
 }
 
@@ -61,8 +98,33 @@ function addScrollButtons() {
     });
 }
 
+// Function to handle Next and Previous button clicks
+function addNavButtons() {
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+
+    prevButton.addEventListener("click", function () {
+        if (currentTaskIndex > 0) {
+            loadContent(taskIds[currentTaskIndex - 1]);
+        }
+    });
+
+    nextButton.addEventListener("click", function () {
+        if (currentTaskIndex < taskIds.length - 1) {
+            loadContent(taskIds[currentTaskIndex + 1]);
+        }
+    });
+
+    toggleNavButtons(); // Ensure buttons are shown/hidden on page load
+}
+
 // Initialize when page loads
 window.onload = function () {
     createNav();
     addScrollButtons();
+    addNavButtons(); // Add event listeners for Next and Previous buttons
+
+    // Hide navigation buttons initially
+    document.getElementById("iframeNav").style.display = "none";
 };
+
