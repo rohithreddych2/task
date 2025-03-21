@@ -80,45 +80,4 @@ iframe {
     height: 80vh;
     border: none;
     background: white;
-    margin-left: 39px;
-}
-
-button {
-    background-color: #444;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-button:disabled {
-    background-color: #888; /* Gray background for disabled buttons */
-    cursor: not-allowed; /* Change cursor to indicate disabled state */
-    opacity: 0.6; /* Reduce opacity for disabled buttons */
-}
-
-#iframeNav {
-    display: none; /* Hidden by default */
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-#iframeNav button {
-    background-color: #444;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#iframeNav button:hover {
-    background-color: #555;
 }
