@@ -17,7 +17,7 @@ const works = {
 };
 
 const taskIds = Object.keys(works);
-let currentTaskIndex = 0;
+let currentTaskIndex = -1; // No project selected initially
 
 // Function to create the navigation menu
 function createNav() {
@@ -35,8 +35,6 @@ function createNav() {
         // Add click event
         link.onclick = function (event) {
             event.preventDefault(); // Prevent default link behavior
-            
-            // Load content
             loadContent(id);
         };
 
@@ -71,15 +69,17 @@ function toggleNavButtons() {
     const nextButton = document.getElementById("nextButton");
 
     if (currentTaskIndex > 0) {
+        prevButton.style.display = "inline-block"; // Show previous button
         prevButton.disabled = false;
     } else {
-        prevButton.disabled = true;
+        prevButton.style.display = "none"; // Hide previous button
     }
 
     if (currentTaskIndex < taskIds.length - 1) {
+        nextButton.style.display = "inline-block"; // Show next button
         nextButton.disabled = false;
     } else {
-        nextButton.disabled = true;
+        nextButton.style.display = "none"; // Hide next button
     }
 }
 
@@ -126,5 +126,6 @@ window.onload = function () {
 
     // Hide navigation buttons initially
     document.getElementById("iframeNav").style.display = "none";
+    document.getElementById("prevButton").style.display = "none";
+    document.getElementById("nextButton").style.display = "none";
 };
-
