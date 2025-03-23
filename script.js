@@ -23,15 +23,13 @@ function createNav() {
     const navPanel = document.getElementById("navPanel");
 
     works.forEach((work, index) => {
-        // Create link
         const link = document.createElement("a");
         link.textContent = work.title;
         link.href = "#";
         link.className = "nav-link";
 
-        // Add click event
-        link.onclick = function (event) {
-            event.preventDefault(); // Prevent default link behavior
+        link.onclick = (event) => {
+            event.preventDefault();
             loadContent(index);
         };
 
@@ -41,42 +39,32 @@ function createNav() {
 
 // Function to load content into the iframe
 function loadContent(index) {
-    const work = works[index];
     const frame = document.getElementById("contentFrame");
-    frame.src = work.url;
+    frame.src = works[index].url;
 
-    // Remove active class from all links and set for clicked one
-    document.querySelectorAll(".nav-link").forEach(a => a.classList.remove("active"));
+    document.querySelectorAll(".nav-link").forEach((a) => a.classList.remove("active"));
     document.querySelectorAll(".nav-link")[index].classList.add("active");
 
-    // Update current task index
     currentTaskIndex = index;
-
-    // Show or disable next/previous buttons based on current task index
     toggleNavButtons();
 
-    // Ensure navigation buttons are visible when a project is selected
     document.getElementById("iframeNav").style.display = "flex";
 }
 
-// Function to show or disable the Next and Previous buttons
+// Function to show/hide navigation buttons
 function toggleNavButtons() {
-    const prevButton = document.getElementById("prevButton");
-    const nextButton = document.getElementById("nextButton");
-
-    prevButton.style.display = currentTaskIndex > 0 ? "inline-block" : "none";
-    nextButton.style.display = currentTaskIndex < works.length - 1 ? "inline-block" : "none";
+    document.getElementById("prevButton").style.display = currentTaskIndex > 0 ? "inline-block" : "none";
+    document.getElementById("nextButton").style.display = currentTaskIndex < works.length - 1 ? "inline-block" : "none";
 }
 
 // Function to add scrolling functionality
 function addScrollButtons() {
-    const navPanel = document.getElementById("navPanel");
     document.getElementById("scrollLeft").addEventListener("click", () => {
-        navPanel.scrollBy({ left: -900, behavior: "smooth" });
+        document.getElementById("navPanel").scrollBy({ left: -900, behavior: "smooth" });
     });
 
     document.getElementById("scrollRight").addEventListener("click", () => {
-        navPanel.scrollBy({ left: 900, behavior: "smooth" });
+        document.getElementById("navPanel").scrollBy({ left: 900, behavior: "smooth" });
     });
 }
 
@@ -90,16 +78,15 @@ function addNavButtons() {
         if (currentTaskIndex < works.length - 1) loadContent(currentTaskIndex + 1);
     });
 
-    toggleNavButtons(); // Ensure buttons are shown/hidden on page load
+    toggleNavButtons();
 }
 
 // Initialize when page loads
 window.onload = function () {
     createNav();
     addScrollButtons();
-    addNavButtons(); // Add event listeners for Next and Previous buttons
+    addNavButtons();
 
-    // Hide navigation buttons initially
     document.getElementById("iframeNav").style.display = "none";
     document.getElementById("prevButton").style.display = "none";
     document.getElementById("nextButton").style.display = "none";

@@ -1,37 +1,58 @@
-body {
-    font-family: Arial, sans-serif;
+/* ========== Global Styles ========== */
+:root {
+    --primary-bg: #222;
+    --secondary-bg: #333;
+    --accent-color: #ff9800;
+    --hover-color: #555;
+    --text-light: #e5dada;
+    --border-color: #e82b2b;
+    --button-radius: 5px;
+    --transition-speed: 0.3s;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
     background-color: #f4f4f4;
     text-align: center;
 }
 
+/* ========== Header ========== */
 h1 {
-    padding: 20px;
-    background: #222;
+    padding: 10px;
+    background: var(--primary-bg);
     color: white;
-    margin: 0;
+    font-size: 1rem;
 }
 
+/* ========== Navigation ========== */
 .nav-container {
     display: flex;
     align-items: center;
-    background: #333;
+    background: var(--secondary-bg);
     padding: 10px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .scroll-btn {
-    background: #222;
+    background: var(--primary-bg);
     color: white;
     border: none;
     padding: 10px 15px;
-    cursor: pointer;
     font-size: 20px;
-    border-radius: 4px;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: background var(--transition-speed);
 }
 
 .scroll-btn:hover {
-    background: #444;
+    background: var(--hover-color);
 }
 
 nav {
@@ -44,32 +65,33 @@ nav {
 }
 
 nav::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
+    display: none;
 }
 
-nav a {
+.nav-link {
     flex: 0 0 auto;
-    color: rgb(229, 218, 218);
+    color: var(--text-light);
     text-decoration: none;
     padding: 10px 20px;
     margin: 5px;
-    background: #444;
-    border-radius: 4px;
-    transition: background 0.3s, transform 0.2s;
+    background: var(--hover-color);
+    border-radius: var(--button-radius);
+    transition: background var(--transition-speed), transform 0.2s ease-in-out;
 }
 
-nav a.active {
-    background: #ff9800; /* Highlight color */
+.nav-link.active {
+    background: var(--accent-color);
     color: white;
     font-weight: bold;
-    border-bottom: 3px solid #e82b2b; /* Underline effect */
-    transform: scale(1.1); /* Slightly enlarge the button */
+    border-bottom: 3px solid var(--border-color);
+    transform: scale(1.1);
 }
 
-nav a:hover {
-    background: #555;
+.nav-link:hover {
+    background: var(--hover-color);
 }
 
+/* ========== Main Content ========== */
 main {
     width: 90%;
     padding: 20px;
@@ -81,28 +103,135 @@ iframe {
     border: none;
     background: white;
     margin-left: 40px;
+    border-radius: var(--button-radius);
+    margin-left: 70px;
 }
+
+/* ========== iFrame Navigation ========== */
 #iframeNav {
     display: flex;
-    justify-content: center; /* Center the buttons horizontally */
-    align-items: center; /* Align items vertically */
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     margin-top: 15px;
 }
 
 #iframeNav button {
-    background: #222;
+    background: var(--primary-bg);
     color: white;
-    border: 2px solid #ff9800; /* Added border */
+    border: 2px solid var(--accent-color);
     padding: 10px 20px;
-    cursor: pointer;
     font-size: 16px;
-    border-radius: 5px;
-align-items: center;    transition: background 0.3s, transform 0.2s;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: background var(--transition-speed), transform 0.2s ease-in-out;
 }
 
 #iframeNav button:hover {
-    background: #ff9800;
+    background: var(--accent-color);
     color: white;
     transform: scale(1.05);
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Mobile Devices (Max Width: 600px) */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 8px 16px;
+        margin: 5px 0;
+    }
+
+    iframe {
+        margin-left: 0;
+        height: 60vh;
+    }
+
+    .scroll-btn {
+        font-size: 18px;
+    }
+
+    #iframeNav button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
+/* Tablets and Small Screens (Max Width: 768px) */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        padding: 18px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    iframe {
+        margin-left: 0;
+        height: 70vh;
+    }
+
+    .scroll-btn {
+        font-size: 18px;
+    }
+
+    #iframeNav button {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+}
+
+/* Desktop Devices (Min Width: 1024px) */
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+        padding: 25px;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-link {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+
+    iframe {
+        height: 80vh;
+    }
+
+    .scroll-btn {
+        font-size: 20px;
+    }
+
+    #iframeNav button {
+        font-size: 16px;
+        padding: 12px 22px;
+    }
 }
