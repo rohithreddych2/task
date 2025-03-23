@@ -84,7 +84,8 @@ iframe {
 }
 #iframeNav {
     display: flex;
-    justify-content: center; /* Center the buttons */
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Align items vertically */
     gap: 10px;
     margin-top: 15px;
 }
@@ -97,7 +98,7 @@ iframe {
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    transition: background 0.3s, transform 0.2s;
+align-items: center;    transition: background 0.3s, transform 0.2s;
 }
 
 #iframeNav button:hover {
