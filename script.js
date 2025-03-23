@@ -13,7 +13,9 @@ const works = [
     { id: "task12", title: "Project 12", url: "works/task12/index.html" },
     { id: "task13", title: "Project 13", url: "works/task13/index.html" },
     { id: "task14", title: "Project 14", url: "works/task14/index.html" },
-    { id: "task15", title: "Project 15", url: "works/task15/index.html" }
+    { id: "task15", title: "Project 15", url: "works/task15/index.html" },
+    { id: "task16", title: "Project 16", url: "works/task16/index.html" }
+
 ];
 
 let currentTaskIndex = -1; // No project selected initially

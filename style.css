@@ -20,7 +20,7 @@ body, html {
     font-family: "Arial", sans-serif;
     background-color: #f0f0f0;
     text-align: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -41,6 +41,7 @@ h1 {
     padding: 10px;
     justify-content: space-between;
     gap: 10px;
+    margin-bottom: 30px; /* 10px gap between navbar and iframe */
 }
 
 .scroll-btn {
@@ -103,16 +104,16 @@ main {
     justify-content: center;
 }
 
-/* ========== Updated iFrame Styling ========== */
+/* ========== iFrame Styling ========== */
 iframe {
     width: calc(100% - 200px); /* Keeps 100px margin on left & right */
-    height: calc(100% - 120px); /* Adjust for header and buttons */
+    height: calc(100% - 100px); /* Adjust for header and buttons */
     border: none;
     background: white;
     border-radius: var(--button-radius);
     display: block;
     margin: auto; /* Center the iframe */
-    margin-bottom: 20px; /* Space below iframe */
+    margin-bottom: 40px; /* Space below iframe */
 }
 
 /* ========== iFrame Navigation (Prev & Next Buttons) ========== */
@@ -121,8 +122,8 @@ iframe {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    margin-top: 10px; /* Adds space between iframe and buttons */
-    padding-bottom: 20px; /* Extra spacing */
+    margin-top: 40px; /* Adds space between iframe and buttons */
+    padding-bottom: 30px; /* Extra spacing */
 }
 
 /* Buttons inside iFrame Navigation */
