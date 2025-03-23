@@ -16,10 +16,13 @@
     box-sizing: border-box;
 }
 
-body {
+body, html {
     font-family: "Arial", sans-serif;
     background-color: #f4f4f4;
     text-align: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
 /* ========== Header ========== */
@@ -27,7 +30,7 @@ h1 {
     padding: 10px;
     background: var(--primary-bg);
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 /* ========== Navigation ========== */
@@ -93,34 +96,41 @@ nav::-webkit-scrollbar {
 
 /* ========== Main Content ========== */
 main {
-    width: 90%;
-    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* ========== Updated iFrame Styling ========== */
 iframe {
-    width: 100%;
-    height: 80vh;
+    width: calc(100% - 200px); /* Keeps 100px margin on left & right */
+    height: calc(100% - 120px); /* Adjust for header and buttons */
     border: none;
     background: white;
-    margin-left: 40px;
     border-radius: var(--button-radius);
-    margin-left: 70px;
+    display: block;
+    margin: auto; /* Center the iframe */
+    margin-bottom: 20px; /* Space below iframe */
 }
 
-/* ========== iFrame Navigation ========== */
+/* ========== iFrame Navigation (Prev & Next Buttons) ========== */
 #iframeNav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 15px;
+    margin-top: 10px; /* Adds space between iframe and buttons */
+    padding-bottom: 20px; /* Extra spacing */
 }
 
+/* Buttons inside iFrame Navigation */
 #iframeNav button {
     background: var(--primary-bg);
     color: white;
     border: 2px solid var(--accent-color);
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     border-radius: var(--button-radius);
     cursor: pointer;
@@ -138,7 +148,7 @@ iframe {
 /* Mobile Devices (Max Width: 600px) */
 @media screen and (max-width: 600px) {
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding: 15px;
     }
 
@@ -160,24 +170,27 @@ iframe {
     }
 
     iframe {
-        margin-left: 0;
-        height: 60vh;
+        width: calc(100% - 40px); /* Adjust for smaller screens */
+        height: calc(100vh - 140px);
+        margin: auto 20px 20px 20px;
     }
 
-    .scroll-btn {
-        font-size: 18px;
+    #iframeNav {
+        flex-direction: column;
+        gap: 10px;
     }
 
     #iframeNav button {
+        width: 80%;
         font-size: 14px;
         padding: 8px 15px;
     }
 }
 
-/* Tablets and Small Screens (Max Width: 768px) */
+/* Tablets (Max Width: 768px) */
 @media screen and (max-width: 768px) {
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         padding: 18px;
     }
 
@@ -192,8 +205,9 @@ iframe {
     }
 
     iframe {
-        margin-left: 0;
-        height: 70vh;
+        width: calc(100% - 80px);
+        height: calc(100vh - 140px);
+        margin: auto 40px 20px 40px;
     }
 
     .scroll-btn {
@@ -206,10 +220,10 @@ iframe {
     }
 }
 
-/* Desktop Devices (Min Width: 1024px) */
+/* Desktop (Min Width: 1024px) */
 @media screen and (min-width: 1024px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         padding: 25px;
     }
 
@@ -223,7 +237,9 @@ iframe {
     }
 
     iframe {
-        height: 80vh;
+        width: calc(100% - 200px); /* Keeps 100px left & right margin */
+        height: calc(100vh - 140px);
+        margin: auto;
     }
 
     .scroll-btn {
