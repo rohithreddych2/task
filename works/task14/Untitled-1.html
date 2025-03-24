@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<body>
+    <h1>Random Number Generator get invisibled after 3sec</h1>
+    <div id="q">
+        <input placeholder=" enter number 1" id="num1">
+        <input placeholder="enter number 2" id="num2">
+        <button onclick="random()">Generate Random Number</button>
+        <p id="res"></p>
+    </div>
+    <script>
+        setTimeout(function () {
+            document.body.style.display = 'none';
+        }, 3000);
+
+        setTimeout(function () {
+            document.body.style.display = 'block';
+        }, 8000);
+        function random() {
+            let x = parseInt(document.getElementById("num1").value);
+            let y = parseInt(document.getElementById("num2").value);
+            let res = Math.floor((y - x) * Math.random() + x);
+            document.getElementById("res").innerHTML = "Random number is " + res;
+        }
+
+    </script>
+</body>
+
+</html>

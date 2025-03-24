@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .btn {
+            font-size: 30px;
+            width: 150px;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 15px;
+        }
+        .btn:hover {
+            cursor: pointer;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+        #bulb_div {
+            width: 150px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #bulb_div img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+       
+    </style>
+    <script>
+        function turn_on() {
+            document.getElementById("bulb_img").src = "task15c-bulb-on.png";
+        }
+        function turn_off() {
+            document.getElementById("bulb_img").src = "task15c-bulb-off.png";
+        }
+    </script>
+</head>
+<body>
+    <div class="container_div">
+        <div id="bulb_div">
+            <img id="bulb_img" src="task15c-bulb-off.png" alt="Bulb" />
+        </div>
+        <div id="buttons_div">
+            <button id="btn_on" class="btn" onclick="turn_on();">ON</button>
+            <button id="btn_off" class="btn" onclick="turn_off();">OFF</button>
+        </div>
+    </div>
+</body>
+</html>

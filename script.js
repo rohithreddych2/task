@@ -11,10 +11,14 @@ const works = [
     { id: "task10", title: "Project 10", url: "works/task10/index.html" },
     { id: "task11", title: "Project 11", url: "works/task11/index.html" },
     { id: "task12", title: "Project 12", url: "works/task12/index.html" },
+    { id: "task12a", title: "Project 12a", url: "works/task12/index1.html" },
     { id: "task13", title: "Project 13", url: "works/task13/index.html" },
     { id: "task14", title: "Project 14", url: "works/task14/index.html" },
+    { id: "task14b", title: "Project 14b", url: "works/task14/Untitled-1.html" },
     { id: "task15", title: "Project 15", url: "works/task15/index.html" },
-    { id: "task16", title: "Project 16", url: "works/task16/index.html" }
+    { id: "task15a", title: "Project 15a", url: "works/task15/bulb/bulb.html" },
+    { id: "task15b", title: "Project 15b", url: "works/task15/age.html" },
+    { id: "task16", title: "Project 16", url: "works/task16/index.html" },
 
 ];
 

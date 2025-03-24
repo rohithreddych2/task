@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+     <script>
+        
+
+        function date() {
+            const year = new Date().getFullYear()
+            let inputDate = new Date(document.getElementById("h").value);
+           let b =  inputDate.getFullYear();
+            let age = year - b;
+            document.getElementById("ii").innerHTML = "Age: " + age;
+        }
+    </script>
+<h4>age calculator</h4>
+    <input type="date" id="h" onchange="date()">
+    <p id="ii"></p>
+</body>
